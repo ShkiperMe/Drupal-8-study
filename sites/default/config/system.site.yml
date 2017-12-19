@@ -1,0 +1,14 @@
+uuid: 669b5c12-843a-44bd-8d39-fffddc2ca366
+name: 'Drupal 8'
+mail: a.zagura@internetdevels.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
