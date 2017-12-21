@@ -1,0 +1,9 @@
+name: Migrate Repositories
+description: Custom migration module to import Repositories from JSON
+package: Migration
+type: module
+core: 8.x
+dependencies:
+  - migrate
+  - migrate_plus
+  - migrate_tools

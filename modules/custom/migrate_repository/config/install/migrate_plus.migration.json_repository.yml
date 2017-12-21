@@ -1,0 +1,33 @@
+id: json_repository
+label: JSON Repository Migration
+source:
+  plugin: json_repository
+destination:
+  plugin: entity:node
+  bundle: repository
+process:
+  type:
+    plugin: default_value
+    default_value: repository
+  nid: rid
+  title: title
+  created: date
+  changed: date
+  langcode:
+    plugin: default_value
+    default_value: en
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_avatar: avatar
+  field_count_stars: count_stars
+  field_created: date
+  field_description: description
+  field_forks: forks
+  field_full_name: full_name
+  field_homepage: homepage
+  field_html_url: html_url
+  field_language: language
+  field_open_issues: open_issues
+  field_url: url
+  field_watchers: watchers

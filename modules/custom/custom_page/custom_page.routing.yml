@@ -1,0 +1,7 @@
+custom_page.page:
+  path: '/custom-page'
+  defaults:
+    _controller: '\Drupal\custom_page\Controller\CustomPageController::customPage'
+    _title: 'Custom Page D8'
+  requirements:
+    _permission: 'access content'

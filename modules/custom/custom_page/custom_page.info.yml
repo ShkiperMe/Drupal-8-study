@@ -1,0 +1,5 @@
+name: Custom D8 page
+type: module
+description: Provides an API for creating custom events.
+package: Other
+core: '8.x'
