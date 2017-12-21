@@ -1,0 +1,23 @@
+uuid: 8af70f1e-72f1-4fa6-baf4-0238a18bb3d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_count_stars
+    - node.type.repository
+id: node.repository.field_count_stars
+field_name: field_count_stars
+entity_type: node
+bundle: repository
+label: 'Count stars'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

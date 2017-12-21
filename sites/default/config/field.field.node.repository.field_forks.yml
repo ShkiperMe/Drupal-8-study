@@ -1,0 +1,23 @@
+uuid: b991ae53-ac8f-470b-bc73-39af15f3f902
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_forks
+    - node.type.repository
+id: node.repository.field_forks
+field_name: field_forks
+entity_type: node
+bundle: repository
+label: Forks
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

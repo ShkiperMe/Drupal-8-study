@@ -1,0 +1,23 @@
+uuid: e1515457-4187-4cc7-b360-bfdab368cd3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage
+    - node.type.repository
+  module:
+    - link
+id: node.repository.field_homepage
+field_name: field_homepage
+entity_type: node
+bundle: repository
+label: Homepage
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

@@ -1,0 +1,23 @@
+uuid: 23373a9f-7fc3-4abf-a6b0-9ef9ef93799a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_watchers
+    - node.type.repository
+id: node.repository.field_watchers
+field_name: field_watchers
+entity_type: node
+bundle: repository
+label: Watchers
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

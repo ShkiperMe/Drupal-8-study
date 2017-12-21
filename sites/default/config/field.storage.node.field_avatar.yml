@@ -1,0 +1,19 @@
+uuid: c03d7c6c-1a1c-44ee-b057-26811b368a26
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_avatar
+field_name: field_avatar
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

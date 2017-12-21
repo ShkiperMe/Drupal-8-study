@@ -1,0 +1,21 @@
+uuid: 7236d83d-be5b-445c-a445-564a061583e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_created
+    - node.type.repository
+  module:
+    - datetime
+id: node.repository.field_created
+field_name: field_created
+entity_type: node
+bundle: repository
+label: Created
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

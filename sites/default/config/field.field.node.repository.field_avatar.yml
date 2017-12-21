@@ -1,0 +1,23 @@
+uuid: acb01634-4341-4f34-bb1c-46f9443e94fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_avatar
+    - node.type.repository
+  module:
+    - link
+id: node.repository.field_avatar
+field_name: field_avatar
+entity_type: node
+bundle: repository
+label: Avatar
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

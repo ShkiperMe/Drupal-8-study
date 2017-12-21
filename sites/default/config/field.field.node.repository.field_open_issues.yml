@@ -1,0 +1,23 @@
+uuid: 39bc828e-2ee2-4a10-8d3b-59cbe51e9c2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_issues
+    - node.type.repository
+id: node.repository.field_open_issues
+field_name: field_open_issues
+entity_type: node
+bundle: repository
+label: 'Open issues'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

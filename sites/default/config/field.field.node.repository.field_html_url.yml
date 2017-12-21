@@ -1,0 +1,23 @@
+uuid: 1e283dce-0301-4690-a9b7-a386e489c5bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_html_url
+    - node.type.repository
+  module:
+    - link
+id: node.repository.field_html_url
+field_name: field_html_url
+entity_type: node
+bundle: repository
+label: 'HTML URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link
