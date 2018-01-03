@@ -1,0 +1,32 @@
+<?php
+
+use Drupal\migrate\MigrateExecutable;
+use Drupal\migrate\MigrateMessage;
+
+/**
+ * Implements hook_cronapi().
+ */
+function migrate_repository_cronapi() {
+  return [
+    'import_repositories' => [
+      'title' => 'Import repositories',
+      'callback' => 'migrate_repository_cron_import_repositories',
+      'callback arguments' => [],
+      'scheduler' => [
+        'name' => 'crontab',
+        'crontab' => [
+          'rules' => ['*/5+@ * * * *'],
+        ],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Import repositories.
+ */
+function migrate_repository_cron_import_repositories() {
+  $migration = \Drupal::service('plugin.manager.migration')->createInstance('json_repository');
+  $executable = new MigrateExecutable($migration, new MigrateMessage());
+  $executable->import();
+}
