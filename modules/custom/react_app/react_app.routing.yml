@@ -1,0 +1,7 @@
+react_app.github_rating:
+  path: '/github-rating'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\ReactAppPageController::githubRatingPage'
+    _title: 'Github Rating'
+  requirements:
+    _permission: 'access github rating'

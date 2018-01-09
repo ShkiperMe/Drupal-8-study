@@ -1,0 +1,7 @@
+# http://jira.jysk.com/browse/DRUPAL-3488
+# Compress JS files outside Drupal folders to improve page load
+<FilesMatch "\.js$">
+  <IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+  </IfModule>
+</FilesMatch>

@@ -64,3 +64,33 @@ Thumbs.db
 # remove IDE files
 .idea
 
+~*
+*~
+/tmp
+/*.sql
+/*.backup
+
+node_modules
+node_modules.tar.gz
+
+npm-debug.log
+
+Gemfile.lock
+
+.project-branch
+
+/sites/default/files/.ht.sqlite
+/console
+
+*-compiled.css
+*-compiled.js
+
+*.*~
+*travis*
+LICENSE*
+
+drushrc.local.php
+sites.local.php
+/modules/custom/**/*-compiled.css
+/modules/custom/**/*-compiled.js
+

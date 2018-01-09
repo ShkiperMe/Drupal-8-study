@@ -1,0 +1,5 @@
+name: Custom React APP
+description: Custom module to include React application
+package: Custom
+type: module
+core: 8.x

@@ -1,0 +1,10 @@
+github-rating:
+  version: 1.x
+  css:
+    theme:
+      css/github-rating.css: {}
+  js:
+    js/polyfill.js: {}
+    ../../../react/build/webpack-loader.js: {}
+    ../../../react/build/dll.vendor.js: {}
+    ../../../react/build/app.js: {}
