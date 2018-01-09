@@ -12,7 +12,7 @@ class ReactAppPageController extends ControllerBase {
    */
   public function githubRatingPage() {
     $module_handler = \Drupal::service('module_handler');
-    $path = $module_handler->getModule('your_module')->getPath();
+    $path = $module_handler->getModule('react_app')->getPath();
     $element = array(
       '#markup' => '<div id="github-rating"></div>',
       '#attached' => array(
