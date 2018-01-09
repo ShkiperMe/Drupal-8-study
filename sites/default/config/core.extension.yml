@@ -19,6 +19,7 @@ module:
   migrate_tools: 0
   node: 0
   page_cache: 0
+  react_app: 0
   rest: 0
   serialization: 0
   system: 0
