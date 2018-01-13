@@ -15,4 +15,16 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_avatar: true
+  field_count_stars: true
+  field_created: true
+  field_description: true
+  field_forks: true
+  field_full_name: true
+  field_homepage: true
+  field_html_url: true
+  field_language: true
+  field_open_issues: true
+  field_url: true
+  field_watchers: true

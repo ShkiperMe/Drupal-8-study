@@ -13,7 +13,7 @@ function selectedLanguage(state = 'All', action) {
 function loadedRepos(state = [], action) {
   switch (action.type) {
     case RECEIVE_REPOS:
-      return action.repos;
+      return action.data;
     default:
       return state;
   }

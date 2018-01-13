@@ -11,7 +11,8 @@
         "drupal/adminimal_admin_toolbar": "^1.5",
         "drupal/migrate_plus": "^2.0",
         "drupal/migrate_tools": "^2.0",
-        "drupal/ultimate_cron": "^2.0@alpha"
+        "drupal/ultimate_cron": "^2.0@alpha",
+        "drupal/views_taxonomy_term_name_depth": "^3.0"
     },
     "replace": {
         "drupal/core": "^8.4"

@@ -12,13 +12,15 @@ export default class Repo extends Component {
           <li>
             <img
               className='avatar'
-              src={repo.owner.avatar_url}
-              alt={'Avatar for ' + repo.owner.login}
+              src={repo.field_avatar[0].uri}
+              alt={'Avatar for ' + repo.title[0].value}
             />
           </li>
-          <li><a href={repo.html_url}>{repo.name}</a></li>
-          <li>@{repo.owner.login}</li>
-          <li>{repo.stargazers_count} stars</li>
+          <li><a href={repo.field_html_url[0].uri}>{repo.title[0].value}</a></li>
+          <li>@{repo.field_full_name[0].value}</li>
+          <li>{repo.field_count_stars[0].value} stars</li>
+          <li>{repo.field_forks[0].value} forks</li>
+          <li>{repo.field_watchers[0].value} watchers</li>
         </ul>
       </li>
     );
