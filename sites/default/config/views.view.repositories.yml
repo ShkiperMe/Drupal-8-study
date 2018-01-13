@@ -23,6 +23,7 @@ dependencies:
     - rest
     - serialization
     - text
+    - user
     - views_taxonomy_term_name_depth
 id: repositories
 label: Repositories
@@ -40,8 +41,9 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'access github rating'
       cache:
         type: tag
         options: {  }
@@ -1043,6 +1045,7 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_avatar'
         - 'config:field.storage.node.field_count_stars'
@@ -1093,6 +1096,7 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_avatar'
         - 'config:field.storage.node.field_count_stars'
@@ -1130,6 +1134,7 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_avatar'
         - 'config:field.storage.node.field_count_stars'
@@ -1169,6 +1174,7 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_avatar'
         - 'config:field.storage.node.field_count_stars'

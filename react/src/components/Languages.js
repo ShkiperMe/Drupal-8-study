@@ -6,16 +6,27 @@ export default class Languages extends Component {
 
     return (
       <ul className='languages'>
-        { languages.map(lang => (
-        <li key={lang}>
+        <li key={0}>
           <a
             href='#'
             onClick={e => {
               e.preventDefault()
-              onClick(lang)
+              onClick('All')
             }}
           >
-            {lang}
+            {'All'}
+          </a>
+        </li>
+        { languages.map(lang => (
+        <li key={lang.tid[0].value}>
+          <a
+            href='#'
+            onClick={e => {
+              e.preventDefault()
+              onClick(lang.name[0].value)
+            }}
+          >
+            {lang.name[0].value}
           </a>
         </li>
         ))}
@@ -26,7 +37,7 @@ export default class Languages extends Component {
 
 Languages.propTypes = {
   languages: PropTypes.arrayOf(
-    PropTypes.string.isRequired
+    PropTypes.object.isRequired
   ).isRequired,
   onClick: PropTypes.func.isRequired
 };

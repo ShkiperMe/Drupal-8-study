@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SELECT_LANGUAGE, RECEIVE_REPOS } from '../actions/actions';
+import {SELECT_LANGUAGE, RECEIVE_REPOS, RECEIVE_LANGUAGES} from '../actions/actions';
 
 function selectedLanguage(state = 'All', action) {
   switch (action.type) {
@@ -19,9 +19,19 @@ function loadedRepos(state = [], action) {
   }
 }
 
+function loadedLanguages(state = [], action) {
+  switch (action.type) {
+    case RECEIVE_LANGUAGES:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   loadedRepos,
-  selectedLanguage
+  selectedLanguage,
+  loadedLanguages
 });
 
 export default rootReducer;
