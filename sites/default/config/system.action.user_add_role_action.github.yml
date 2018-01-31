@@ -1,0 +1,14 @@
+uuid: 4966cfe2-3d74-456e-b675-6015de7b82ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.github
+  module:
+    - user
+id: user_add_role_action.github
+label: 'Add the Github role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: github

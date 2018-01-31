@@ -1,0 +1,18 @@
+uuid: 5c62a4ab-d7d3-4dd6-9c03-0e95cae3982f
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - serialization
+    - simple_oauth
+id: entity.oauth2_token
+plugin_id: 'entity:oauth2_token'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - basic_auth

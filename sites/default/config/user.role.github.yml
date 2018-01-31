@@ -1,0 +1,17 @@
+uuid: 1c41e6ab-337c-46d1-aa90-0b19ae252566
+langcode: en
+status: true
+dependencies: {  }
+id: github
+label: Github
+weight: 2
+is_admin: null
+permissions:
+  - 'access github rating'
+  - 'add simple_oauth entities'
+  - 'administer taxonomy'
+  - 'edit terms in language'
+  - 'grant simple_oauth codes'
+  - 'update own simple_oauth entities'
+  - 'view own consumer entities'
+  - 'view own simple_oauth entities'

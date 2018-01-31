@@ -1,0 +1,14 @@
+uuid: 9d6e25d9-9f32-4e6b-9db9-3bb3bec0c317
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.github
+  module:
+    - user
+id: user_remove_role_action.github
+label: 'Remove the Github role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: github

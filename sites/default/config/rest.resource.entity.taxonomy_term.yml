@@ -1,0 +1,20 @@
+uuid: 04d70c63-e583-42c2-a6b2-a7ca1405a939
+langcode: en
+status: true
+dependencies:
+  module:
+    - serialization
+    - simple_oauth
+    - taxonomy
+id: entity.taxonomy_term
+plugin_id: 'entity:taxonomy_term'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - PATCH
+  formats:
+    - json
+  authentication:
+    - oauth2

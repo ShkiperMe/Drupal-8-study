@@ -11,3 +11,9 @@ is_admin: false
 permissions:
   - 'access content'
   - 'access github rating'
+  - 'add simple_oauth entities'
+  - 'administer taxonomy'
+  - 'delete own simple_oauth entities'
+  - 'edit terms in language'
+  - 'update own simple_oauth entities'
+  - 'view own simple_oauth entities'

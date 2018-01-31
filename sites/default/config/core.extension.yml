@@ -2,16 +2,20 @@ module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
+  basic_auth: 0
   block: 0
   breakpoint: 0
   config: 0
+  consumers: 0
   custom_page: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   field: 0
   field_ui: 0
+  file: 0
   filter: 0
+  image: 0
   link: 0
   migrate: 0
   migrate_plus: 0
@@ -21,7 +25,10 @@ module:
   page_cache: 0
   react_app: 0
   rest: 0
+  restui: 0
   serialization: 0
+  simple_oauth: 0
+  simple_oauth_extras: 0
   system: 0
   taxonomy: 0
   text: 0
