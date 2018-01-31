@@ -9,3 +9,5 @@ github-rating:
     ../../../react/build/webpack-loader.js: {}
     ../../../react/build/dll.vendor.js: {}
     ../../../react/build/app.js: {}
+  dependencies:
+    - core/jquery
