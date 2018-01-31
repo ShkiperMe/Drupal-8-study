@@ -1,7 +1,10 @@
 require('axios');
 require('react');
 require('react-dom');
+require('react-router-dom');
+require('react-cookies');
 require('react-redux');
 require('redux');
 require('redux-logger');
 require('redux-thunk');
+require('prop-types');
