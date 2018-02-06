@@ -30,3 +30,10 @@ function migrate_repository_cron_import_repositories() {
   $executable = new MigrateExecutable($migration, new MigrateMessage());
   $executable->import();
 }
+
+/**
+ * Implements hook_taxonomy_term_insert().
+ */
+function migrate_repository_taxonomy_term_insert() {
+  migrate_repository_cron_import_repositories();
+}
