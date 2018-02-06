@@ -10,7 +10,7 @@ class ReactAppPageController extends ControllerBase {
    * @return array
    *   A simple renderable array.
    */
-  public function githubRatingPage() {
+  public function githubRatingPage($child = FALSE) {
     $module_handler = \Drupal::service('module_handler');
     $path = $module_handler->getModule('react_app')->getPath();
     $element = array(
