@@ -14,7 +14,8 @@
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/views_taxonomy_term_name_depth": "^3.0",
         "drupal/restui": "^1.15",
-        "drupal/simple_oauth": "^3.4"
+        "drupal/simple_oauth": "^3.4",
+        "drupal/taxonomy_unique": "^2.0"
     },
     "replace": {
         "drupal/core": "^8.4"

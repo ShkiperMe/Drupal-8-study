@@ -31,6 +31,7 @@ module:
   simple_oauth_extras: 0
   system: 0
   taxonomy: 0
+  taxonomy_unique: 0
   text: 0
   toolbar: 0
   ultimate_cron: 0
