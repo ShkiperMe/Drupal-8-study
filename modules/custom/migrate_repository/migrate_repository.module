@@ -2,6 +2,7 @@
 
 use Drupal\migrate\MigrateExecutable;
 use Drupal\migrate\MigrateMessage;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_cronapi().
@@ -38,4 +39,15 @@ function migrate_repository_cron_import_repositories() {
  */
 function migrate_repository_taxonomy_term_insert() {
   migrate_repository_cron_import_repositories();
+}
+
+/**
+ * Implements hook_taxonomy_term_delete().
+ */
+function migrate_repository_taxonomy_term_delete(Term $term) {
+  $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+    'field_language' => $term->id(),
+  ]);
+  $controller = \Drupal::entityManager()->getStorage('node');
+  $controller->delete($nodes);
 }
