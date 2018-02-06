@@ -3,7 +3,7 @@ github-rating:
   css:
     theme:
       css/github-rating.css: {}
-      https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css: { type: external, minified: false }
+      https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.css: { type: external, minified: false }
   js:
     js/polyfill.js: {}
     ../../../react/build/webpack-loader.js: {}

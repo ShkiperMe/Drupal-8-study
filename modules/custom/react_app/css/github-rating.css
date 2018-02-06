@@ -1,6 +1,12 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-size: 14px !important;
 }
+
+.path-github-rating .region-highlighted {
+  display: none;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto
