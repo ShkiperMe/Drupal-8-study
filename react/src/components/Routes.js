@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactRouter } from 'react-router-dom';
-import Router from 'react-router-dom/BrowserRouter';
+import Router from 'react-router-dom/Router';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 
@@ -9,10 +9,12 @@ import Navigation from '../components/Navigation';
 import NewLanguageView from '../containers/NewLanguageView';
 import LoginView from "../containers/LoginView";
 
+import {history} from '../lib/history';
+
 class Routes extends React.Component {
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div className='container'>
           <Navigation />
           <Switch>

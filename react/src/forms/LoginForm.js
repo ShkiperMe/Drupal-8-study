@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import Redirect from 'react-router-dom/Redirect';
 import createHistory from 'history/createBrowserHistory';
 import cookie from 'react-cookies';
 import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import {hide, show} from 'redux-modal';
 
-export default class LoginForm extends Component {
+import { FormErrors } from '../components/FormErrors';
+import BootstrapModal from '../components/BootstrapModal';
+
+
+class LoginForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       name: '',
-      password: ''
+      password: '',
+      formErrors: {}
     };
   }
 
@@ -25,14 +33,29 @@ export default class LoginForm extends Component {
   }
 
   handleSubmit = event => {
+    const _self = this;
     event.preventDefault();
+
+    jQuery.ajax({
+      url: '/rest/session/token?_format=json',
+      type: 'get',
+      success: function (data) {
+        const expires = new Date(new Date().getTime()+(30*24*60*60*1000));
+        cookie.save('X-CSRF-Token', data, { path: '/', expires: expires });
+      },
+      error: function (data) {
+        _self.setState({
+          formErrors: {0: data.responseJSON.message},
+        }, this.validateForm);
+      }
+    });
 
     jQuery.ajax({
       url: '/oauth/token?_format=json',
       type: 'post',
       data: {
         'grant_type': 'password',
-        'client_id': '3155a01e-2b78-42df-98ad-09ec7e4f4aea',
+        'client_id': '294824cf-ce49-467a-80b3-43cbe4d7743f',
         'client_secret': 'admin',
         'username': this.state.name,
         'password': this.state.password,
@@ -45,8 +68,18 @@ export default class LoginForm extends Component {
       success: function (data) {
         const expires = new Date(new Date().getTime()+(30*24*60*60*1000));
         cookie.save('Bearer', data.access_token, { path: '/', expires: expires });
-        const history = createHistory();
-        history.replace('/github-rating/new');
+        _self.props.show('bootstrap', {
+          title: 'Welcome',
+          message: 'You may create new language now',
+          handler: {
+            redirectOnHide: '/github-rating/new'
+          },
+        });
+      },
+      error: function (data) {
+        _self.setState({
+          formErrors: {0: data.responseJSON.message},
+        }, this.validateForm);
       }
     });
 
@@ -59,6 +92,7 @@ export default class LoginForm extends Component {
     else {
       return (
         <div className="Login">
+          <FormErrors formErrors={this.state.formErrors} />
           <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="name" bsSize="large">
               <ControlLabel>Username</ControlLabel>
@@ -86,8 +120,14 @@ export default class LoginForm extends Component {
               Login
             </Button>
           </form>
+          <BootstrapModal />
         </div>
       );
     }
   }
 }
+
+export default connect(
+  null,
+  dispatch => bindActionCreators({ show }, dispatch)
+)(LoginForm)

@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { Button, FormGroup, FormControl, ControlLabel, Modal } from 'react-bootstrap';
 import Redirect from 'react-router-dom/Redirect';
-import createHistory from 'history/createBrowserHistory';
 import cookie from 'react-cookies';
-import axios from 'axios';
+import {show} from 'redux-modal';
 
-export default class NewLanguageForm extends Component {
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+
+import { FormErrors } from '../components/FormErrors';
+import BootstrapModal from '../components/BootstrapModal';
+
+class NewLanguageForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: "",
+      name: '',
+      formErrors: {}
     };
   }
 
@@ -25,37 +31,51 @@ export default class NewLanguageForm extends Component {
   }
 
   handleSubmit = event => {
+    const _self = this;
     event.preventDefault();
 
     const payload = {
-      'vid': [
+      "vid": [
         {
           "target_id": "language",
           "target_type": "taxonomy_vocabulary",
         }
       ],
-      'name': [
+      "name": [
         {
-          'value': this.state.name
+          "value": this.state.name
         }
       ]
     };
 
-    axios.post('/taxonomy/term?_format=json', payload, {
+    jQuery.ajax({
+      url: '/taxonomy/term?_format=json',
+      type: 'post',
+      data: JSON.stringify(payload),
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + cookie.load('Bearer'),
+        'X-CSRF-Token': cookie.load('X-CSRF-Token'),
       },
-    })
-      .then(function (response) {
-        console.log(response);
-        if (response.status === 200) {
-          const history = createHistory();
-          history.replace('/github-rating');
+      dataType: 'json',
+      success: function (data) {
+        if (data.tid) {
+          _self.props.show('bootstrap', {
+            title: 'New language was created',
+            message: data.name[0].value,
+            handler: {
+              redirectOnHide: '/github-rating'
+            },
+          });
         }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      },
+      error: function (data) {
+        console.log(data);
+        _self.setState({
+          formErrors: {0: data.responseJSON.message},
+        }, this.validateForm);
+      }
+    });
 
   }
 
@@ -66,6 +86,7 @@ export default class NewLanguageForm extends Component {
     else {
       return (
         <div className="new-language-form">
+          <FormErrors formErrors={this.state.formErrors} />
           <p className="text-header">{'Add language'}</p>
           <form onSubmit={this.handleSubmit}>
             <FormGroup controlId="name" bsSize="large">
@@ -86,8 +107,14 @@ export default class NewLanguageForm extends Component {
               Save language
             </Button>
           </form>
+          <BootstrapModal />
         </div>
       );
     }
   }
 }
+
+export default connect(
+  null,
+  dispatch => bindActionCreators({ show }, dispatch)
+)(NewLanguageForm)

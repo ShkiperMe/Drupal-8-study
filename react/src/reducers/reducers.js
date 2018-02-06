@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as modal } from 'redux-modal'
 import {SELECT_LANGUAGE, RECEIVE_REPOS, RECEIVE_LANGUAGES} from '../actions/actions';
 
 function selectedLanguage(state = 'All', action) {
@@ -31,7 +32,8 @@ function loadedLanguages(state = [], action) {
 const rootReducer = combineReducers({
   loadedRepos,
   selectedLanguage,
-  loadedLanguages
+  loadedLanguages,
+  modal
 });
 
 export default rootReducer;
