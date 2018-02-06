@@ -27,8 +27,10 @@ function migrate_repository_cronapi() {
  */
 function migrate_repository_cron_import_repositories() {
   $migration = \Drupal::service('plugin.manager.migration')->createInstance('json_repository');
-  $executable = new MigrateExecutable($migration, new MigrateMessage());
-  $executable->import();
+  if ($migration) {
+    $executable = new MigrateExecutable($migration, new MigrateMessage());
+    $executable->import();
+  }
 }
 
 /**
