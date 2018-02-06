@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Redirect from 'react-router-dom/Redirect';
-import createHistory from 'history/createBrowserHistory';
 import cookie from 'react-cookies';
 import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import {hide, show} from 'redux-modal';
+import { show} from 'redux-modal';
 
 import { FormErrors } from '../components/FormErrors';
 import BootstrapModal from '../components/BootstrapModal';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 
 class LoginForm extends Component {
@@ -18,7 +18,8 @@ class LoginForm extends Component {
     this.state = {
       name: '',
       password: '',
-      formErrors: {}
+      formErrors: {},
+      loading: false,
     };
   }
 
@@ -34,6 +35,9 @@ class LoginForm extends Component {
 
   handleSubmit = event => {
     const _self = this;
+    _self.setState({
+      loading: true,
+    });
     event.preventDefault();
 
     jQuery.ajax({
@@ -42,10 +46,14 @@ class LoginForm extends Component {
       success: function (data) {
         const expires = new Date(new Date().getTime()+(30*24*60*60*1000));
         cookie.save('X-CSRF-Token', data, { path: '/', expires: expires });
+        _self.setState({
+          loading: false,
+        });
       },
       error: function (data) {
         _self.setState({
           formErrors: {0: data.responseJSON.message},
+          loading: false,
         }, this.validateForm);
       }
     });
@@ -119,6 +127,7 @@ class LoginForm extends Component {
             >
               Login
             </Button>
+            {this.state.loading ? <LoadingSpinner /> : ''}
           </form>
           <BootstrapModal />
         </div>

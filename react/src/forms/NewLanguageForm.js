@@ -9,6 +9,7 @@ import {bindActionCreators} from "redux";
 
 import { FormErrors } from '../components/FormErrors';
 import BootstrapModal from '../components/BootstrapModal';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 class NewLanguageForm extends Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class NewLanguageForm extends Component {
 
     this.state = {
       name: '',
-      formErrors: {}
+      formErrors: {},
+      loading: false,
     };
   }
 
@@ -32,6 +34,9 @@ class NewLanguageForm extends Component {
 
   handleSubmit = event => {
     const _self = this;
+    _self.setState({
+      loading: true,
+    });
     event.preventDefault();
 
     const payload = {
@@ -67,12 +72,15 @@ class NewLanguageForm extends Component {
               redirectOnHide: '/github-rating'
             },
           });
+          _self.setState({
+            loading: false,
+          });
         }
       },
       error: function (data) {
-        console.log(data);
         _self.setState({
           formErrors: {0: data.responseJSON.message},
+          loading: false,
         }, this.validateForm);
       }
     });
@@ -106,6 +114,7 @@ class NewLanguageForm extends Component {
             >
               Save language
             </Button>
+            {this.state.loading ? <LoadingSpinner /> : ''}
           </form>
           <BootstrapModal />
         </div>
